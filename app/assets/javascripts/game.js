@@ -262,4 +262,51 @@ var playerXSpeed = 7;
     this.pos = newPos;
   }
  };
- 
+
+Player.prototype.act = function(step,level,keys) {
+  this.moveX(step,level,keys);
+  this.moveY(step,level,keys);
+
+  var otherActor = level.actorAt(this);
+  if (otherActor)
+    level.playerTouched(otherActor.type, otherActor);
+  //losing animation
+  if (level.status == "lost") {
+    this.pos.y += step;
+    this.pos.y -= step;
+  }
+};
+
+Level.prototype.playerTouched = function(type,actor) {
+  if (type == "lava" && this.status == null) {
+    this.status = "lost";
+    this.finishDelay = 1;
+  } else if (type == "coin") {
+    this.actors = this.actors.filter(function(other) {
+      return other != actor;
+    });
+    if(!this.actors.some(function(actor){
+      return actor.type == "coin";
+    })) {
+      this.status = "won";
+      this.finishDelay = 1;
+    }
+  }
+};
+//tracking keys
+var arrowCodes = {37: "left", 38: "up", 39: "right"};
+
+function trackKeys(codes) {
+  var pressed = Object.create(null);
+  function handler(event) {
+    if (codes.hasOwnProperty(event.keyCode)){
+      var down = event.type == "keydown";
+      pressed[codes[event.keyCode]]= down;
+      event.precentDefault();
+    }
+  }
+  addEventListener("keydown", handler);
+  addEventListener("keyup", handler);
+  return pressed;
+}
+
