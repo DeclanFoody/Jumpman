@@ -33,7 +33,7 @@
   background: rgb(244,229,89);
 }
 .player {
-  background: rgb(64,64,64);
+  background: blue;
 }
 .lost .player {
   background: rgb(160,64,64);
