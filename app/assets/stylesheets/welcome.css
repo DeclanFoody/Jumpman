@@ -1,0 +1,72 @@
+* {
+  
+  color:white;
+}
+a {
+  text-decoration: none;
+  background: inherit;
+
+}
+.container  {
+  background:black; 
+  position:fixed; 
+  z-index: 1;
+  margin-top: -1em;
+  margin-left:-1em;
+  width:100%;
+  height:9em;
+}
+
+ .nav-bar {
+    width: 95%;
+    height: 6em;
+    background: #00B0FF;
+    position: fixed;
+    border-radius:0.25em;  
+    margin-top: 1em;
+ }
+
+#my-logo {
+    width: 5em;
+    height: 4em;
+    background:white;
+    margin-top: 1em;
+    margin-left: 1em;
+    display:inline-block;
+    position:inherit;
+    border-radius:0.25em;
+}
+.othersections {
+  width: 40em;
+  height: 4em;
+  background:inherit;
+  margin-top:2em;
+  margin-left:35em;
+  position: inherit;
+}
+
+.headings {
+  display:inline;
+  background:inherit;
+  padding:1em;
+}
+
+.othersectionheaders {
+  background:inherit;
+  display:inline;
+  margin: 1em;
+  font-family: monospace;
+}
+
+.contact  {
+  height:20em;
+  background:blue;
+}
+
+.body {
+  width:76em;
+  background:blue;
+  height:100em;
+  z-index:0;
+  display: inline;
+}

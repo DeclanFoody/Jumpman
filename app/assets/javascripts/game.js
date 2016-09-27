@@ -340,6 +340,7 @@ function runLevel(level,Display, andThen) {
     }
   });
 }
+
 function runGame(plans,Display) {
   function startLevel(n){
     runLevel(new Level(plans[n]), Display, function(status){
@@ -353,4 +354,3 @@ function runGame(plans,Display) {
   }
   startLevel(0);
 }
-console.log("game should work");
