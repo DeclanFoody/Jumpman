@@ -1,4 +1,21 @@
 
 <script>
-runGame(GAME_LEVELS, DOMDisplay);
+    runGame(GAME_LEVELS, CanvasDisplay);
+</script>
+<script>
+  $(document).ready(function(){
+    $(".headings").mouseover(function() {
+        $hello = $(this).css('background');
+        $(this).css({ 'border': 'solid white',
+    'border-width':'0 5px'});
+        
+        console.log($hello +
+          "hey");
+    });
+    console.log("suh");
+    $('.headings').mouseout(function() {
+        $(this).css({ 'border': 'none',
+    'border-width':'0 0px'});
+    });
+  });
 </script>
